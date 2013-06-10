@@ -30,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		165EB8D780B74AA29A63E5C3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		255699AE17667A280064CD81 /* Lockitron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lockitron.h; sourceTree = "<group>"; };
 		25AFABC817659845005E747F /* LockitronSDKExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockitronSDKExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25AFABCB17659845005E747F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		25AFABCD17659845005E747F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -139,18 +140,19 @@
 		25AFABEE17659859005E747F /* LockitronSDK */ = {
 			isa = PBXGroup;
 			children = (
-				25AFABEF17659955005E747F /* LTOAuthenticator.h */,
-				25AFABF017659955005E747F /* LTOAuthenticator.m */,
-				25AFABF217659B5C005E747F /* LockitronSDK.h */,
-				25AFABF317659B5C005E747F /* LockitronSDK.m */,
+				255699AE17667A280064CD81 /* Lockitron.h */,
+				25AFAC03176631C4005E747F /* LTKey.h */,
+				25AFAC04176631C4005E747F /* LTKey.m */,
 				25AFABF517659C1F005E747F /* LTLock.h */,
 				25AFABF617659C1F005E747F /* LTLock.m */,
 				25AFABFB1765A94B005E747F /* LTUser.h */,
 				25AFABFC1765A94B005E747F /* LTUser.m */,
+				25AFABF217659B5C005E747F /* LockitronSDK.h */,
+				25AFABF317659B5C005E747F /* LockitronSDK.m */,
+				25AFABEF17659955005E747F /* LTOAuthenticator.h */,
+				25AFABF017659955005E747F /* LTOAuthenticator.m */,
 				25AFAC00176629AF005E747F /* NSDictionary+URLEncoding.h */,
 				25AFAC01176629AF005E747F /* NSDictionary+URLEncoding.m */,
-				25AFAC03176631C4005E747F /* LTKey.h */,
-				25AFAC04176631C4005E747F /* LTKey.m */,
 			);
 			path = LockitronSDK;
 			sourceTree = SOURCE_ROOT;

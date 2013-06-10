@@ -69,7 +69,6 @@
     [request setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"%@", JSON);
 //        
 //        NSDate *dateExpiration = [NSDate dateWithTimeIntervalSinceNow:[[JSON objectForKey:@"expires_in"] floatValue]];
 //        

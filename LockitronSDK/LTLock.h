@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Sebastien Thiebaud. All rights reserved.
 //
 
-#import "LockitronSDK.h"
+#import "Lockitron.h"
 
 @interface LTLock : NSObject
 
@@ -16,5 +16,9 @@
 @property (strong) NSString *name;
 @property (assign) LockitronSDKLockState state;
 @property (strong) NSArray *keys;
+@property (weak) id delegate;
+
+- (void)unlock;
+- (void)lock;
 
 @end

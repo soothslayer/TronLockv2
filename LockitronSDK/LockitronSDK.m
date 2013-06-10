@@ -20,6 +20,10 @@
 @property (strong) LTOAuthenticator *authenticator;
 @property (strong) NSOperationQueue *queue;
 @property (assign) BOOL isReady;
+@property (weak) id<LockitronSDKDelegate> delegate;
+@property (strong) NSArray *locks;
+
+- (void)requestLocks;
 
 @end
 
@@ -27,7 +31,7 @@
 
 static LockitronSDK *_instance = nil;
 
-+ (void)startWithClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret
++ (void)startWithClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret delegate:(id<LockitronSDKDelegate>)delegate
 {
     if (_instance == nil)
     {
@@ -38,6 +42,8 @@ static LockitronSDK *_instance = nil;
         _instance = [[LockitronSDK alloc] init];
         _instance.authenticator = authenticator;
         authenticator.delegate = _instance;
+        
+        _instance.delegate = delegate;
     }
     
     [_instance.authenticator startAuthentication];
@@ -67,10 +73,154 @@ static LockitronSDK *_instance = nil;
 {
     NSLog(@"Authentication is done.");
     _isReady = YES;
+    
+    [self requestLocks];
 }
 
 #pragma mark -
 #pragma mark API methods
+
+#pragma mark Private
+
+- (void)requestLocks
+{
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.lockitron.com/v1/locks?access_token=%@", _authenticator.access_token]]];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
+    {
+         NSMutableArray *locks = [[NSMutableArray alloc] init];
+         
+         for (NSDictionary *item in JSON)
+         {
+             LTLock *lock = [[LTLock alloc] init];
+             lock.delegate = self;
+             lock.id = [[item objectForKey:@"lock"] objectForKey:@"id"];
+             lock.latitude = [[item objectForKey:@"lock"] objectForKey:@"latitude"];
+             lock.longitude = [[item objectForKey:@"lock"] objectForKey:@"longitude"];
+             lock.name = [[item objectForKey:@"lock"] objectForKey:@"name"];
+             
+             if ([[item objectForKey:@"lock"] objectForKey:@"status"] == [NSNull null])
+             {
+                 lock.state = LockitronSDKLockNotConfigured;
+             }
+             else
+             {
+                 lock.state = ([[[item objectForKey:@"lock"] objectForKey:@"status"] isEqualToString:@"unlock"]) ? LockitronSDKLockOpen : LockitronSDKLockClosed;
+             }
+             
+             NSMutableArray *keys = [[NSMutableArray alloc] init];
+             
+             for (NSDictionary *itemKey in [[item objectForKey:@"lock"] objectForKey:@"keys"])
+             {
+                 LTKey *key = [[LTKey alloc] init];
+                 key.id = [itemKey objectForKey:@"id"];
+                 key.role = ([[itemKey objectForKey:@"role"] isEqualToString:@"guest"]) ? LockitronSDKUserGuest : LockitronSDKUserAdmin;
+                 key.isValid = [[itemKey objectForKey:@"valid"] boolValue];
+                 key.isVisible = [[itemKey objectForKey:@"visible"] boolValue];
+                 
+                 LTUser *user = [[LTUser alloc] init];
+                 user.id = [[itemKey objectForKey:@"user"] objectForKey:@"id"];
+                 user.isActivated = [[[itemKey objectForKey:@"user"] objectForKey:@"activated"] boolValue];
+                 user.firstName = [[itemKey objectForKey:@"user"] objectForKey:@"first_name"];
+                 user.lastName = [[itemKey objectForKey:@"user"] objectForKey:@"last_name"];
+                 user.fullName = [[itemKey objectForKey:@"user"] objectForKey:@"full_name"];
+                 user.bestName = [[itemKey objectForKey:@"user"] objectForKey:@"best_name"];
+                 user.email = [[itemKey objectForKey:@"user"] objectForKey:@"email"];
+                 user.phoneNumber = [[itemKey objectForKey:@"user"] objectForKey:@"phone"];
+                 user.humanPhoneNumber = [[itemKey objectForKey:@"user"] objectForKey:@"human_phone"];
+                 
+                 key.user = user;
+                 
+                 [keys addObject:key];
+             }
+             
+             lock.keys = keys;
+             
+             [locks addObject:lock];
+         }
+         
+        _locks = locks;
+        
+        if ([_delegate respondsToSelector:@selector(lockitronIsReady)])
+        {
+            [_delegate lockitronIsReady];
+        }
+        
+     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
+     {
+         NSLog(@"Locks request failed with error: %d %@", response.statusCode, [error localizedDescription]);
+     }];
+    
+    [_instance.queue addOperation:operation];
+}
+
+- (void)unlockDoor:(LTLock *)lock
+{
+    NSURLRequest *request = [LockitronSDK requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.lockitron.com/v1/locks/%@/unlock", lock.id]] parameters:@{@"lock_id": lock.id, @"access_token": _authenticator.access_token} method:@"POST"];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
+    {
+        NSLog(@"%d", response.statusCode);
+
+        if (response.statusCode == 200 && [[[JSON objectForKey:@"log"] objectForKey:@"type"] isEqualToString:@"lock-unlock"])
+        {
+            lock.state = LockitronSDKLockOpen;
+            
+            if ([_delegate respondsToSelector:@selector(lockitronChangedLockState:to:)])
+            {
+                [_delegate lockitronChangedLockState:lock to:LockitronSDKLockOpen];
+            }
+        }
+        else if (response.statusCode == 403)
+        {
+            if ([_delegate respondsToSelector:@selector(lockitronDeniedAccess:errorMessage:)])
+            {
+                [_delegate lockitronDeniedAccess:lock errorMessage:@"You don't have access to the lock."];
+            }
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        if ([_delegate respondsToSelector:@selector(lockitronDeniedAccess:errorMessage:)])
+        {
+            [_delegate lockitronDeniedAccess:lock errorMessage:@"You don't have access to the lock."];
+        }
+    }];
+    
+    [_instance.queue addOperation:operation];
+}
+
+- (void)lockDoor:(LTLock *)lock
+{
+    NSURLRequest *request = [LockitronSDK requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.lockitron.com/v1/locks/%@/lock", lock.id]] parameters:@{@"lock_id": lock.id, @"access_token": _authenticator.access_token} method:@"POST"];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
+    {
+        NSLog(@"%d", response.statusCode);
+        
+        if (response.statusCode == 200 && [[[JSON objectForKey:@"log"] objectForKey:@"type"] isEqualToString:@"lock-lock"])
+        {
+            lock.state = LockitronSDKLockClosed;
+            
+            if ([_delegate respondsToSelector:@selector(lockitronChangedLockState:to:)])
+            {
+                [_delegate lockitronChangedLockState:lock to:LockitronSDKLockClosed];
+            }
+        }
+        else if (response.statusCode == 403)
+        {
+            if ([_delegate respondsToSelector:@selector(lockitronDeniedAccess:errorMessage:)])
+            {
+                [_delegate lockitronDeniedAccess:lock errorMessage:@"You don't have access to the lock."];
+            }
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        if ([_delegate respondsToSelector:@selector(lockitronDeniedAccess:errorMessage:)])
+        {
+            [_delegate lockitronDeniedAccess:lock errorMessage:@"You don't have access to the lock."];
+        }
+    }];
+    
+    [_instance.queue addOperation:operation];
+}
 
 + (NSURLRequest *)requestWithURL:(NSURL *)url parameters:(NSDictionary *)parameters method:(NSString *)method
 {
@@ -82,76 +232,11 @@ static LockitronSDK *_instance = nil;
     return request;
 }
 
-+ (void)locksGranted:(void (^)(NSArray *locks))locks
-{
-    if (!_instance.isReady)
-    {
-        NSLog(@"The authentication process is not completed yet.");
-        return;
-    }
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.lockitron.com/v1/locks?access_token=%@", _instance.authenticator.access_token]]];
-    NSLog(@"request: %@", request);
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
-    {
-        NSMutableArray *locks = [[NSMutableArray alloc] init];
-        
-        for (NSDictionary *item in JSON)
-        {
-            LTLock *lock = [[LTLock alloc] init];
-            lock.id = [[item objectForKey:@"lock"] objectForKey:@"id"];
-            lock.latitude = [[item objectForKey:@"lock"] objectForKey:@"latitude"];
-            lock.longitude = [[item objectForKey:@"lock"] objectForKey:@"longitude"];
-            lock.name = [[item objectForKey:@"lock"] objectForKey:@"name"];
+#pragma mark Public
 
-            if ([[item objectForKey:@"lock"] objectForKey:@"status"] == [NSNull null])
-            {
-                lock.state = LockitronSDKLockNotConfigured;
-            }
-            else
-            {
-                lock.state = ([[[item objectForKey:@"lock"] objectForKey:@"status"] isEqualToString:@"unlock"]) ? LockitronSDKLockOpen : LockitronSDKLockClosed;
-            }
-                        
-            NSMutableArray *keys = [[NSMutableArray alloc] init];
-            
-            for (NSDictionary *itemKey in [[item objectForKey:@"lock"] objectForKey:@"keys"])
-            {
-                LTKey *key = [[LTKey alloc] init];
-                key.id = [itemKey objectForKey:@"id"];
-                key.role = ([[itemKey objectForKey:@"role"] isEqualToString:@"guest"]) ? LockitronSDKUserGuest : LockitronSDKUserAdmin;
-                key.isValid = [[itemKey objectForKey:@"valid"] boolValue];
-                key.isVisible = [[itemKey objectForKey:@"visible"] boolValue];
-                
-                LTUser *user = [[LTUser alloc] init];
-                user.id = [[itemKey objectForKey:@"user"] objectForKey:@"id"];
-                user.isActivated = [[[itemKey objectForKey:@"user"] objectForKey:@"activated"] boolValue];
-                user.firstName = [[itemKey objectForKey:@"user"] objectForKey:@"first_name"];
-                user.lastName = [[itemKey objectForKey:@"user"] objectForKey:@"last_name"];
-                user.fullName = [[itemKey objectForKey:@"user"] objectForKey:@"full_name"];
-                user.bestName = [[itemKey objectForKey:@"user"] objectForKey:@"best_name"];
-                user.email = [[itemKey objectForKey:@"user"] objectForKey:@"email"];
-                user.phoneNumber = [[itemKey objectForKey:@"user"] objectForKey:@"phone"];
-                user.humanPhoneNumber = [[itemKey objectForKey:@"user"] objectForKey:@"human_phone"];
-                
-                key.user = user;
-                
-                [keys addObject:key];
-            }
-            
-            lock.keys = keys;
-            
-            [locks addObject:lock];
-        }
-        
-        locks(locks);
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
-    {
-        NSLog(@"Locks request failed with error: %d %@", response.statusCode, [error localizedDescription]);
-    }];
-    
-    [_instance.queue addOperation:operation];
++ (NSArray *)locksList;
+{
+    return _instance.locks;
 }
 
 @end

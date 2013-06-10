@@ -26,7 +26,17 @@
             break;
     }
     
-    return [NSString stringWithFormat:@"[LTLock] %@ is %@. Keys' list: %@", _name, state, _keys];
+    return [NSString stringWithFormat:@"[LTLock] %@ is %@.", _name, state];
+}
+
+- (void)unlock
+{
+    [_delegate unlockDoor:self];
+}
+
+- (void)lock
+{
+    [_delegate lockDoor:self];
 }
 
 @end

@@ -15,13 +15,12 @@
 @implementation LTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    [LockitronSDK startWithClientID:@"3e20f758745841523ebf76621bf6c1a5ca7e919c6fca1688c34db61f9d68cd8e" clientSecret:@"2fb6b28550ca17787a1bd920cfe25e693316d084ee590d7aeb64324f12835783"];
-    
+{    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[LTViewController alloc] initWithNibName:@"LTViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
