@@ -1,0 +1,306 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		25AFABCC17659845005E747F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AFABCB17659845005E747F /* UIKit.framework */; };
+		25AFABCE17659845005E747F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AFABCD17659845005E747F /* Foundation.framework */; };
+		25AFABD017659845005E747F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AFABCF17659845005E747F /* CoreGraphics.framework */; };
+		25AFABD617659845005E747F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 25AFABD417659845005E747F /* InfoPlist.strings */; };
+		25AFABD817659845005E747F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AFABD717659845005E747F /* main.m */; };
+		25AFABDC17659845005E747F /* LTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AFABDB17659845005E747F /* LTAppDelegate.m */; };
+		25AFABDE17659845005E747F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 25AFABDD17659845005E747F /* Default.png */; };
+		25AFABE017659845005E747F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25AFABDF17659845005E747F /* Default@2x.png */; };
+		25AFABE217659845005E747F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25AFABE117659845005E747F /* Default-568h@2x.png */; };
+		25AFABE517659845005E747F /* LTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AFABE417659845005E747F /* LTViewController.m */; };
+		25AFABE817659845005E747F /* LTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25AFABE617659845005E747F /* LTViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		25AFABC817659845005E747F /* LockitronSDKExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockitronSDKExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		25AFABCB17659845005E747F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		25AFABCD17659845005E747F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		25AFABCF17659845005E747F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		25AFABD317659845005E747F /* LockitronSDKExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LockitronSDKExample-Info.plist"; sourceTree = "<group>"; };
+		25AFABD517659845005E747F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		25AFABD717659845005E747F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		25AFABD917659845005E747F /* LockitronSDKExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LockitronSDKExample-Prefix.pch"; sourceTree = "<group>"; };
+		25AFABDA17659845005E747F /* LTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTAppDelegate.h; sourceTree = "<group>"; };
+		25AFABDB17659845005E747F /* LTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LTAppDelegate.m; sourceTree = "<group>"; };
+		25AFABDD17659845005E747F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		25AFABDF17659845005E747F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		25AFABE117659845005E747F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		25AFABE317659845005E747F /* LTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTViewController.h; sourceTree = "<group>"; };
+		25AFABE417659845005E747F /* LTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LTViewController.m; sourceTree = "<group>"; };
+		25AFABE717659845005E747F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LTViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		25AFABC517659845005E747F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25AFABCC17659845005E747F /* UIKit.framework in Frameworks */,
+				25AFABCE17659845005E747F /* Foundation.framework in Frameworks */,
+				25AFABD017659845005E747F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		25AFABBF17659845005E747F = {
+			isa = PBXGroup;
+			children = (
+				25AFABD117659845005E747F /* LockitronSDKExample */,
+				25AFABCA17659845005E747F /* Frameworks */,
+				25AFABC917659845005E747F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		25AFABC917659845005E747F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				25AFABC817659845005E747F /* LockitronSDKExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		25AFABCA17659845005E747F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25AFABCB17659845005E747F /* UIKit.framework */,
+				25AFABCD17659845005E747F /* Foundation.framework */,
+				25AFABCF17659845005E747F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		25AFABD117659845005E747F /* LockitronSDKExample */ = {
+			isa = PBXGroup;
+			children = (
+				25AFABDA17659845005E747F /* LTAppDelegate.h */,
+				25AFABDB17659845005E747F /* LTAppDelegate.m */,
+				25AFABE317659845005E747F /* LTViewController.h */,
+				25AFABE417659845005E747F /* LTViewController.m */,
+				25AFABE617659845005E747F /* LTViewController.xib */,
+				25AFABD217659845005E747F /* Supporting Files */,
+			);
+			path = LockitronSDKExample;
+			sourceTree = "<group>";
+		};
+		25AFABD217659845005E747F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				25AFABD317659845005E747F /* LockitronSDKExample-Info.plist */,
+				25AFABD417659845005E747F /* InfoPlist.strings */,
+				25AFABD717659845005E747F /* main.m */,
+				25AFABD917659845005E747F /* LockitronSDKExample-Prefix.pch */,
+				25AFABDD17659845005E747F /* Default.png */,
+				25AFABDF17659845005E747F /* Default@2x.png */,
+				25AFABE117659845005E747F /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		25AFABC717659845005E747F /* LockitronSDKExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25AFABEB17659845005E747F /* Build configuration list for PBXNativeTarget "LockitronSDKExample" */;
+			buildPhases = (
+				25AFABC417659845005E747F /* Sources */,
+				25AFABC517659845005E747F /* Frameworks */,
+				25AFABC617659845005E747F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LockitronSDKExample;
+			productName = LockitronSDKExample;
+			productReference = 25AFABC817659845005E747F /* LockitronSDKExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		25AFABC017659845005E747F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LT;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Sebastien Thiebaud";
+			};
+			buildConfigurationList = 25AFABC317659845005E747F /* Build configuration list for PBXProject "LockitronSDKExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 25AFABBF17659845005E747F;
+			productRefGroup = 25AFABC917659845005E747F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				25AFABC717659845005E747F /* LockitronSDKExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		25AFABC617659845005E747F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25AFABD617659845005E747F /* InfoPlist.strings in Resources */,
+				25AFABDE17659845005E747F /* Default.png in Resources */,
+				25AFABE017659845005E747F /* Default@2x.png in Resources */,
+				25AFABE217659845005E747F /* Default-568h@2x.png in Resources */,
+				25AFABE817659845005E747F /* LTViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		25AFABC417659845005E747F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25AFABD817659845005E747F /* main.m in Sources */,
+				25AFABDC17659845005E747F /* LTAppDelegate.m in Sources */,
+				25AFABE517659845005E747F /* LTViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		25AFABD417659845005E747F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				25AFABD517659845005E747F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		25AFABE617659845005E747F /* LTViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				25AFABE717659845005E747F /* en */,
+			);
+			name = LTViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		25AFABE917659845005E747F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		25AFABEA17659845005E747F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		25AFABEC17659845005E747F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LockitronSDKExample/LockitronSDKExample-Prefix.pch";
+				INFOPLIST_FILE = "LockitronSDKExample/LockitronSDKExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		25AFABED17659845005E747F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LockitronSDKExample/LockitronSDKExample-Prefix.pch";
+				INFOPLIST_FILE = "LockitronSDKExample/LockitronSDKExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		25AFABC317659845005E747F /* Build configuration list for PBXProject "LockitronSDKExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25AFABE917659845005E747F /* Debug */,
+				25AFABEA17659845005E747F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		25AFABEB17659845005E747F /* Build configuration list for PBXNativeTarget "LockitronSDKExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25AFABEC17659845005E747F /* Debug */,
+				25AFABED17659845005E747F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 25AFABC017659845005E747F /* Project object */;
+}
