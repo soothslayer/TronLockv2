@@ -51,6 +51,10 @@
     else
     {
         NSLog(@"Token already acquired.");
+        if ([_delegate respondsToSelector:@selector(authenticationIsDone)])
+        {
+            [_delegate authenticationIsDone];
+        }
     }
 }
 

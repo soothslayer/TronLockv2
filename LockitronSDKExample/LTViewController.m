@@ -7,8 +7,11 @@
 //
 
 #import "LTViewController.h"
+#import "LockitronSDK.h"
 
 @interface LTViewController ()
+
+- (IBAction)requestLocks:(id)sender;
 
 @end
 
@@ -24,6 +27,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)requestLocks:(id)sender
+{
+    [LockitronSDK locksGranted:^(NSArray *locks) {
+        NSLog(@"Locks: %@", locks);
+    }];
 }
 
 @end

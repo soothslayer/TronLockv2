@@ -10,4 +10,23 @@
 
 @implementation LTLock
 
+- (NSString *)description
+{
+    NSString *state = @"";
+    
+    switch (_state) {
+        case LockitronSDKLockNotConfigured:
+            state = @"not configured";
+            break;
+        case LockitronSDKLockClosed:
+            state = @"closed";
+            break;
+        case LockitronSDKLockOpen:
+            state = @"open";
+            break;
+    }
+    
+    return [NSString stringWithFormat:@"[LTLock] %@ is %@. Keys' list: %@", _name, state, _keys];
+}
+
 @end

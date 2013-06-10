@@ -22,7 +22,10 @@
 		25AFABF117659955005E747F /* LTOAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AFABF017659955005E747F /* LTOAuthenticator.m */; };
 		25AFABF417659B5C005E747F /* LockitronSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AFABF317659B5C005E747F /* LockitronSDK.m */; };
 		25AFABF717659C1F005E747F /* LTLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AFABF617659C1F005E747F /* LTLock.m */; };
-		25AFABFA1765A745005E747F /* LTRequestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AFABF91765A745005E747F /* LTRequestAPI.m */; };
+		25AFABFD1765A94B005E747F /* LTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AFABFC1765A94B005E747F /* LTUser.m */; };
+		25AFABFF176624F8005E747F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AFABFE176624F8005E747F /* AddressBook.framework */; };
+		25AFAC02176629AF005E747F /* NSDictionary+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AFAC01176629AF005E747F /* NSDictionary+URLEncoding.m */; };
+		25AFAC05176631C4005E747F /* LTKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AFAC04176631C4005E747F /* LTKey.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,8 +52,13 @@
 		25AFABF317659B5C005E747F /* LockitronSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockitronSDK.m; sourceTree = "<group>"; };
 		25AFABF517659C1F005E747F /* LTLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLock.h; sourceTree = "<group>"; };
 		25AFABF617659C1F005E747F /* LTLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLock.m; sourceTree = "<group>"; };
-		25AFABF81765A745005E747F /* LTRequestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTRequestAPI.h; sourceTree = "<group>"; };
-		25AFABF91765A745005E747F /* LTRequestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTRequestAPI.m; sourceTree = "<group>"; };
+		25AFABFB1765A94B005E747F /* LTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUser.h; sourceTree = "<group>"; };
+		25AFABFC1765A94B005E747F /* LTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUser.m; sourceTree = "<group>"; };
+		25AFABFE176624F8005E747F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		25AFAC00176629AF005E747F /* NSDictionary+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+URLEncoding.h"; sourceTree = "<group>"; };
+		25AFAC01176629AF005E747F /* NSDictionary+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+URLEncoding.m"; sourceTree = "<group>"; };
+		25AFAC03176631C4005E747F /* LTKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTKey.h; sourceTree = "<group>"; };
+		25AFAC04176631C4005E747F /* LTKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTKey.m; sourceTree = "<group>"; };
 		6F73E6D2B065451CB1D2C091 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -59,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25AFABFF176624F8005E747F /* AddressBook.framework in Frameworks */,
 				25AFABCC17659845005E747F /* UIKit.framework in Frameworks */,
 				25AFABCE17659845005E747F /* Foundation.framework in Frameworks */,
 				25AFABD017659845005E747F /* CoreGraphics.framework in Frameworks */,
@@ -90,6 +99,7 @@
 		25AFABCA17659845005E747F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25AFABFE176624F8005E747F /* AddressBook.framework */,
 				25AFABCB17659845005E747F /* UIKit.framework */,
 				25AFABCD17659845005E747F /* Foundation.framework */,
 				25AFABCF17659845005E747F /* CoreGraphics.framework */,
@@ -135,8 +145,12 @@
 				25AFABF317659B5C005E747F /* LockitronSDK.m */,
 				25AFABF517659C1F005E747F /* LTLock.h */,
 				25AFABF617659C1F005E747F /* LTLock.m */,
-				25AFABF81765A745005E747F /* LTRequestAPI.h */,
-				25AFABF91765A745005E747F /* LTRequestAPI.m */,
+				25AFABFB1765A94B005E747F /* LTUser.h */,
+				25AFABFC1765A94B005E747F /* LTUser.m */,
+				25AFAC00176629AF005E747F /* NSDictionary+URLEncoding.h */,
+				25AFAC01176629AF005E747F /* NSDictionary+URLEncoding.m */,
+				25AFAC03176631C4005E747F /* LTKey.h */,
+				25AFAC04176631C4005E747F /* LTKey.m */,
 			);
 			path = LockitronSDK;
 			sourceTree = SOURCE_ROOT;
@@ -247,7 +261,9 @@
 				25AFABF117659955005E747F /* LTOAuthenticator.m in Sources */,
 				25AFABF417659B5C005E747F /* LockitronSDK.m in Sources */,
 				25AFABF717659C1F005E747F /* LTLock.m in Sources */,
-				25AFABFA1765A745005E747F /* LTRequestAPI.m in Sources */,
+				25AFABFD1765A94B005E747F /* LTUser.m in Sources */,
+				25AFAC02176629AF005E747F /* NSDictionary+URLEncoding.m in Sources */,
+				25AFAC05176631C4005E747F /* LTKey.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
