@@ -7,12 +7,14 @@
 //
 
 #import "LTViewController.h"
+#import "LTLockCell.h"
+#import "SVProgressHUD.h"
+
 #import "Lockitron.h"
 
-@interface LTViewController () <LockitronSDKDelegate>
+@interface LTViewController () <UITableViewDataSource, UITableViewDelegate, LockitronSDKDelegate>
 
-- (IBAction)unlockTheDoor:(id)sender;
-- (IBAction)lockTheDoor:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -21,20 +23,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
     [LockitronSDK startWithClientID:@"3e20f758745841523ebf76621bf6c1a5ca7e919c6fca1688c34db61f9d68cd8e" clientSecret:@"2fb6b28550ca17787a1bd920cfe25e693316d084ee590d7aeb64324f12835783" delegate:self];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [SVProgressHUD showWithStatus:@"Please wait..."];
+}
+
+#pragma mark -
+#pragma mark Lockitron delegate
+
 - (void)lockitronIsReady
 {
-    NSLog(@"Lockitron is ready to work!");
-    NSLog(@"%@", [LockitronSDK locksList]);    
+    [SVProgressHUD dismiss];
+    [_tableView reloadData];
 }
 
 - (void)lockitronChangedLockState:(LTLock *)lock to:(LockitronSDKLockState)state
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Lock/Unlock" message:[NSString stringWithFormat:@"%@ is now %@", lock.name, (lock.state == LockitronSDKLockClosed) ? @"closed" : @"open"] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-    [alert show];
+    int index = [[LockitronSDK locksList] indexOfObject:lock];
+    
+    [_tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)lockitronDeniedAccess:(LTLock *)lock errorMessage:(NSString *)error
@@ -43,16 +57,71 @@
     [alert show];
 }
 
-- (IBAction)lockTheDoor:(id)sender
+#pragma mark -
+#pragma mark UITableView datasource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    LTLock *lock = (LTLock *)[[LockitronSDK locksList] objectAtIndex:0];
-    [lock lock];
+    return 1;
 }
 
-- (IBAction)unlockTheDoor:(id)sender
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    LTLock *lock = (LTLock *)[[LockitronSDK locksList] objectAtIndex:0];
-    [lock unlock];
+    return [LockitronSDK locksList].count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"LockCell";
+    
+    LTLockCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil)
+    {
+        cell = [[LTLockCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        [cell setDelegate:self];
+    }
+    
+    LTLock *lock = (LTLock *)[[LockitronSDK locksList] objectAtIndex:indexPath.row];
+    cell.name.text = lock.name;
+    
+    if (lock.state == LockitronSDKLockOpen)
+    {
+        [cell setUnlock];
+    }
+    else if (lock.state == LockitronSDKLockClosed)
+    {
+        [cell setLock];
+    }
+    else
+    {
+    
+    }
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60.0;
+}
+
+#pragma mark UITableView delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    LTLock *lock = (LTLock *)[[LockitronSDK locksList] objectAtIndex:indexPath.row];
+    
+    if (lock.state == LockitronSDKLockOpen)
+    {
+        [lock lock];
+    }
+    else
+    {
+        [lock unlock];
+    }
 }
 
 @end

@@ -160,8 +160,6 @@ static LockitronSDK *_instance = nil;
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
     {
-        NSLog(@"%d", response.statusCode);
-
         if (response.statusCode == 200 && [[[JSON objectForKey:@"log"] objectForKey:@"type"] isEqualToString:@"lock-unlock"])
         {
             lock.state = LockitronSDKLockOpen;
@@ -194,8 +192,6 @@ static LockitronSDK *_instance = nil;
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
     {
-        NSLog(@"%d", response.statusCode);
-        
         if (response.statusCode == 200 && [[[JSON objectForKey:@"log"] objectForKey:@"type"] isEqualToString:@"lock-lock"])
         {
             lock.state = LockitronSDKLockClosed;

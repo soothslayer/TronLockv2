@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1099066FFCB84BC6A0BB7917 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F73E6D2B065451CB1D2C091 /* libPods.a */; };
+		257624301766A4A200F7CD9B /* LTLockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2576242F1766A4A200F7CD9B /* LTLockCell.m */; };
 		25AFABCC17659845005E747F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AFABCB17659845005E747F /* UIKit.framework */; };
 		25AFABCE17659845005E747F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AFABCD17659845005E747F /* Foundation.framework */; };
 		25AFABD017659845005E747F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AFABCF17659845005E747F /* CoreGraphics.framework */; };
@@ -31,6 +32,8 @@
 /* Begin PBXFileReference section */
 		165EB8D780B74AA29A63E5C3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		255699AE17667A280064CD81 /* Lockitron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lockitron.h; sourceTree = "<group>"; };
+		2576242E1766A4A200F7CD9B /* LTLockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLockCell.h; sourceTree = "<group>"; };
+		2576242F1766A4A200F7CD9B /* LTLockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLockCell.m; sourceTree = "<group>"; };
 		25AFABC817659845005E747F /* LockitronSDKExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockitronSDKExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25AFABCB17659845005E747F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		25AFABCD17659845005E747F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -117,6 +120,8 @@
 				25AFABDB17659845005E747F /* LTAppDelegate.m */,
 				25AFABE317659845005E747F /* LTViewController.h */,
 				25AFABE417659845005E747F /* LTViewController.m */,
+				2576242E1766A4A200F7CD9B /* LTLockCell.h */,
+				2576242F1766A4A200F7CD9B /* LTLockCell.m */,
 				25AFABE617659845005E747F /* LTViewController.xib */,
 				25AFABD217659845005E747F /* Supporting Files */,
 			);
@@ -266,6 +271,7 @@
 				25AFABFD1765A94B005E747F /* LTUser.m in Sources */,
 				25AFAC02176629AF005E747F /* NSDictionary+URLEncoding.m in Sources */,
 				25AFAC05176631C4005E747F /* LTKey.m in Sources */,
+				257624301766A4A200F7CD9B /* LTLockCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
