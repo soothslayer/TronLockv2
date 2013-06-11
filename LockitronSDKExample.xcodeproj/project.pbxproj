@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		1099066FFCB84BC6A0BB7917 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F73E6D2B065451CB1D2C091 /* libPods.a */; };
 		257624301766A4A200F7CD9B /* LTLockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2576242F1766A4A200F7CD9B /* LTLockCell.m */; };
+		257624361766D9CB00F7CD9B /* base_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 257624321766D9CB00F7CD9B /* base_lock.png */; };
+		257624371766D9CB00F7CD9B /* base_lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 257624331766D9CB00F7CD9B /* base_lock@2x.png */; };
+		257624381766D9CB00F7CD9B /* top_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 257624341766D9CB00F7CD9B /* top_lock.png */; };
+		257624391766D9CB00F7CD9B /* top_lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 257624351766D9CB00F7CD9B /* top_lock@2x.png */; };
+		2576243B1766DBDF00F7CD9B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2576243A1766DBDE00F7CD9B /* QuartzCore.framework */; };
 		25AFABCC17659845005E747F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AFABCB17659845005E747F /* UIKit.framework */; };
 		25AFABCE17659845005E747F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AFABCD17659845005E747F /* Foundation.framework */; };
 		25AFABD017659845005E747F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AFABCF17659845005E747F /* CoreGraphics.framework */; };
@@ -34,6 +39,11 @@
 		255699AE17667A280064CD81 /* Lockitron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lockitron.h; sourceTree = "<group>"; };
 		2576242E1766A4A200F7CD9B /* LTLockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLockCell.h; sourceTree = "<group>"; };
 		2576242F1766A4A200F7CD9B /* LTLockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLockCell.m; sourceTree = "<group>"; };
+		257624321766D9CB00F7CD9B /* base_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_lock.png; sourceTree = "<group>"; };
+		257624331766D9CB00F7CD9B /* base_lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "base_lock@2x.png"; sourceTree = "<group>"; };
+		257624341766D9CB00F7CD9B /* top_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_lock.png; sourceTree = "<group>"; };
+		257624351766D9CB00F7CD9B /* top_lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_lock@2x.png"; sourceTree = "<group>"; };
+		2576243A1766DBDE00F7CD9B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		25AFABC817659845005E747F /* LockitronSDKExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockitronSDKExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25AFABCB17659845005E747F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		25AFABCD17659845005E747F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -71,10 +81,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25AFABD017659845005E747F /* CoreGraphics.framework in Frameworks */,
+				2576243B1766DBDF00F7CD9B /* QuartzCore.framework in Frameworks */,
 				25AFABFF176624F8005E747F /* AddressBook.framework in Frameworks */,
 				25AFABCC17659845005E747F /* UIKit.framework in Frameworks */,
 				25AFABCE17659845005E747F /* Foundation.framework in Frameworks */,
-				25AFABD017659845005E747F /* CoreGraphics.framework in Frameworks */,
 				1099066FFCB84BC6A0BB7917 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +93,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		257624311766D9CB00F7CD9B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				257624321766D9CB00F7CD9B /* base_lock.png */,
+				257624331766D9CB00F7CD9B /* base_lock@2x.png */,
+				257624341766D9CB00F7CD9B /* top_lock.png */,
+				257624351766D9CB00F7CD9B /* top_lock@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		25AFABBF17659845005E747F = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +125,7 @@
 		25AFABCA17659845005E747F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2576243A1766DBDE00F7CD9B /* QuartzCore.framework */,
 				25AFABFE176624F8005E747F /* AddressBook.framework */,
 				25AFABCB17659845005E747F /* UIKit.framework */,
 				25AFABCD17659845005E747F /* Foundation.framework */,
@@ -123,6 +146,7 @@
 				2576242E1766A4A200F7CD9B /* LTLockCell.h */,
 				2576242F1766A4A200F7CD9B /* LTLockCell.m */,
 				25AFABE617659845005E747F /* LTViewController.xib */,
+				257624311766D9CB00F7CD9B /* Images */,
 				25AFABD217659845005E747F /* Supporting Files */,
 			);
 			path = LockitronSDKExample;
@@ -221,6 +245,10 @@
 				25AFABE017659845005E747F /* Default@2x.png in Resources */,
 				25AFABE217659845005E747F /* Default-568h@2x.png in Resources */,
 				25AFABE817659845005E747F /* LTViewController.xib in Resources */,
+				257624361766D9CB00F7CD9B /* base_lock.png in Resources */,
+				257624371766D9CB00F7CD9B /* base_lock@2x.png in Resources */,
+				257624381766D9CB00F7CD9B /* top_lock.png in Resources */,
+				257624391766D9CB00F7CD9B /* top_lock@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
