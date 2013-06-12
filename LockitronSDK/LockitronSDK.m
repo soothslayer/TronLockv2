@@ -22,6 +22,7 @@
 @property (assign) BOOL isReady;
 @property (weak) id<LockitronSDKDelegate> delegate;
 @property (strong) NSArray *locks;
+@property (strong) LTUser *user;
 
 - (void)requestLocks;
 
@@ -86,10 +87,9 @@ static LockitronSDK *_instance = nil;
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.lockitron.com/v1/locks?access_token=%@", _authenticator.access_token]]];
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
-    {
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON){
          NSMutableArray *locks = [[NSMutableArray alloc] init];
-         
+        
          for (NSDictionary *item in JSON)
          {
              LTLock *lock = [[LTLock alloc] init];
@@ -230,9 +230,14 @@ static LockitronSDK *_instance = nil;
 
 #pragma mark Public
 
-+ (NSArray *)locksList;
++ (NSArray *)locksList
 {
     return _instance.locks;
+}
+
++ (LTUser *)userAuthenticated
+{
+    return _instance.user;
 }
 
 @end

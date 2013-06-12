@@ -68,13 +68,11 @@
     [request setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-//        
-//        NSDate *dateExpiration = [NSDate dateWithTimeIntervalSinceNow:[[JSON objectForKey:@"expires_in"] floatValue]];
-//        
-        [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:[JSON objectForKey:@"access_token"]] forKey:@"access_token"];
-//        [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:dateExpiration] forKey:@"expiration"];
+        _access_token = [JSON objectForKey:@"access_token"];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_access_token] forKey:@"access_token"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-
+        
         if ([_delegate respondsToSelector:@selector(authenticationIsDone)])
         {
             [_delegate authenticationIsDone];

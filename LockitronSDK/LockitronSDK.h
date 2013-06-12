@@ -26,6 +26,7 @@
 + (void)startWithClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret delegate:(id<LockitronSDKDelegate>)delegate;
 + (void)handleOpenURL:(NSURL *)url;
 + (NSArray *)locksList;
+//+ (LTUser *)userAuthenticated;
 
 - (void)unlockDoor:(LTLock *)lock;
 - (void)lockDoor:(LTLock *)lock;

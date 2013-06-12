@@ -19,7 +19,6 @@
 @end
 
 @implementation LTViewController
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -47,7 +46,17 @@
 {
     int index = [[LockitronSDK locksList] indexOfObject:lock];
     
-    [_tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    LTLockCell *cell = (LTLockCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+    
+    if (state == LockitronSDKLockOpen)
+    {
+        [cell setUnlockAnimated:YES];
+    }
+    else if (state == LockitronSDKLockClosed)
+    {
+        [cell setLockAnimated:YES];
+    }
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
@@ -85,17 +94,15 @@
     LTLock *lock = (LTLock *)[[LockitronSDK locksList] objectAtIndex:indexPath.row];
     cell.name.text = lock.name;
     
+    NSLog(@"%@: %@", lock.name, lock.keys);
+
     if (lock.state == LockitronSDKLockOpen)
     {
-        [cell setUnlock];
+        [cell setUnlockAnimated:NO];
     }
     else if (lock.state == LockitronSDKLockClosed)
     {
-        [cell setLock];
-    }
-    else
-    {
-    
+        [cell setLockAnimated:NO];
     }
     
     return cell;

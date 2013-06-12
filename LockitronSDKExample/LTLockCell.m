@@ -20,7 +20,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         _colorIndicatorView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 60.0, 60.0)];
         _colorIndicatorView.backgroundColor = [UIColor grayColor];
@@ -47,46 +47,29 @@
         _descriptionLabel.textColor = [UIColor blackColor];
         _descriptionLabel.text = @"Unconfigured.";
         [self addSubview:_descriptionLabel];
-        
-        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] init];
-        tapGestureRecognizer.numberOfTapsRequired = 1;
-        tapGestureRecognizer.numberOfTouchesRequired = 1;
-        [_colorIndicatorView addGestureRecognizer:tapGestureRecognizer];
     }
     return self;
 }
 
-- (void)setUnlock
+- (void)setUnlockAnimated:(BOOL)animated
 {
-    _colorIndicatorView.backgroundColor = [UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/250.0 alpha:1.0];
     _descriptionLabel.text = @"This lock is open.";
+    CGRect frame = CGRectMake(33.0, 19.5, 14.0, 9.0);
     
-    _topLockView.frame = CGRectMake(23.0, 19.5, 14.0, 9.0);
-    
-    [UIView animateWithDuration:1.0 animations:^{
-        CATransform3D t = CATransform3DIdentity;
-        t.m34 = 1.0 / -500.0;
-        t= CATransform3DRotate(t, 45.0 * M_PI / 180.0, 0, 1, 0);
-        
-        _topLockView.layer.transform = t;
-        CGRect frame = _topLockView.frame;
-        frame.origin.x += 7.0;
-//        _topLockView.frame = frame;
+    [UIView animateWithDuration:((animated) ? 0.6 : 0.0) animations:^{
+        _colorIndicatorView.backgroundColor = [UIColor colorWithRed:46.0/255.0 green:204.0/255.0 blue:113.0/250.0 alpha:1.0];
+        _topLockView.frame = frame;
     }];
 }
 
-- (void)setLock
+- (void)setLockAnimated:(BOOL)animated
 {
-    _colorIndicatorView.backgroundColor = [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/250.0 alpha:1.0];
     _descriptionLabel.text = @"This lock is locked.";
-    
-    _topLockView.frame = CGRectMake(23.0, 19.5, 14.0, 9.0);
-    
-    [UIView animateWithDuration:1.0 animations:^{
-        _topLockView.layer.transform = CATransform3DMakeRotation(M_PI, 0.0, -1.0, 0.0);
-        CGRect frame = _topLockView.frame;
-        frame.origin.x += 7.0;
-        //        _topLockView.frame = frame;
+    CGRect frame = CGRectMake(23.0, 19.5, 14.0, 9.0);
+
+    [UIView animateWithDuration:((animated) ? 0.6 : 0.0) animations:^{
+        _colorIndicatorView.backgroundColor = [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/250.0 alpha:1.0];
+        _topLockView.frame = frame;
     }];
 }
 

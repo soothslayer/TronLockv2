@@ -13,7 +13,7 @@
 @property (strong) UILabel *name;
 @property (weak) id delegate;
 
-- (void)setUnlock;
-- (void)setLock;
+- (void)setUnlockAnimated:(BOOL)animated;
+- (void)setLockAnimated:(BOOL)animated;
 
 @end
