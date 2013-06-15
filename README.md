@@ -13,5 +13,5 @@ Sebastien Thiebaud
 
 ## License
 
-STTimeSlider is available under the MIT license.
+LockitronSDK is available under the MIT license.
 
