@@ -30,9 +30,9 @@ CGFloat SVProgressHUDRingThickness = 6;
 
 @property (nonatomic, readonly) CGFloat visibleKeyboardHeight;
 
-- (void)showProgress:(float)progress
-              status:(NSString*)string
-            maskType:(SVProgressHUDMaskType)hudMaskType;
+//- (void)showProgress:(float)progress
+//              status:(NSString*)string
+//            maskType:(SVProgressHUDMaskType)hudMaskType;
 
 - (void)showImage:(UIImage*)image
            status:(NSString*)status
@@ -188,9 +188,12 @@ CGFloat SVProgressHUDRingThickness = 6;
     BOOL imageUsed = (self.imageView.image) || (self.imageView.hidden);
     
     if(string) {
-        CGSize stringSize = [string sizeWithFont:self.stringLabel.font constrainedToSize:CGSizeMake(200, 300)];
-        stringWidth = stringSize.width;
-        stringHeight = stringSize.height;
+        CGRect stringRect = [string boundingRectWithSize:CGSizeMake(200, 300) options:NSStringDrawingTruncatesLastVisibleLine attributes:nil context:nil];
+//        CGSize stringSize = [string sizeWithFont:self.stringLabel.font constrainedToSize:CGSizeMake(200, 300)];
+        stringWidth = stringRect.size.width;
+        stringHeight = stringRect.size.height;
+//        stringWidth = stringSize.width;
+//        stringHeight = stringSize.height;
         if (imageUsed)
             hudHeight = 80+stringHeight;
         else

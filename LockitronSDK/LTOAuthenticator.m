@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Sebastien Thiebaud. All rights reserved.
 //
 
-#define kLockitronSDKRedirectURI    "lockitronsdk://oauth.code"
+#define kLockitronSDKRedirectURI    "lockitronsdk://urlcallback"
 
 #import "LTOAuthenticator.h"
 #import "AFNetworking.h"
@@ -67,7 +67,9 @@
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]];
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id JSON) {
         _access_token = [JSON objectForKey:@"access_token"];
         
         [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:_access_token] forKey:@"access_token"];
@@ -78,7 +80,7 @@
             [_delegate authenticationIsDone];
         }
         
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
     

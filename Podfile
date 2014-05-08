@@ -1,3 +1,6 @@
-platform :ios, '5.0'
+platform :ios, '7.1'
 pod 'AFNetworking'
 pod 'SVProgressHUD'
+pod 'PebbleKit'
+pod 'DejalActivityView'
+

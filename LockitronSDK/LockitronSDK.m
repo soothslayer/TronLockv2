@@ -87,7 +87,9 @@ static LockitronSDK *_instance = nil;
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.lockitron.com/v1/locks?access_token=%@", _authenticator.access_token]]];
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON){
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id JSON) {
          NSMutableArray *locks = [[NSMutableArray alloc] init];
         
          for (NSDictionary *item in JSON)
@@ -146,9 +148,8 @@ static LockitronSDK *_instance = nil;
             [_delegate lockitronIsReady];
         }
         
-     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
-     {
-         NSLog(@"Locks request failed with error: %d %@", response.statusCode, [error localizedDescription]);
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Locks request failed with error: %@", [error localizedDescription]);
      }];
     
     [_instance.queue addOperation:operation];
@@ -158,9 +159,11 @@ static LockitronSDK *_instance = nil;
 {
     NSURLRequest *request = [LockitronSDK requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.lockitron.com/v1/locks/%@/unlock", lock.id]] parameters:@{@"lock_id": lock.id, @"access_token": _authenticator.access_token} method:@"POST"];
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id JSON)
     {
-        if (response.statusCode == 200 && [[[JSON objectForKey:@"log"] objectForKey:@"type"] isEqualToString:@"lock-unlock"])
+        if (operation.response.statusCode == 200 && [[[JSON objectForKey:@"log"] objectForKey:@"type"] isEqualToString:@"lock-unlock"])
         {
             lock.state = LockitronSDKLockOpen;
             
@@ -169,14 +172,14 @@ static LockitronSDK *_instance = nil;
                 [_delegate lockitronChangedLockState:lock to:LockitronSDKLockOpen];
             }
         }
-        else if (response.statusCode == 403)
+        else if (operation.response.statusCode == 403)
         {
             if ([_delegate respondsToSelector:@selector(lockitronDeniedAccess:errorMessage:)])
             {
                 [_delegate lockitronDeniedAccess:lock errorMessage:@"You don't have access to the lock."];
             }
         }
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if ([_delegate respondsToSelector:@selector(lockitronDeniedAccess:errorMessage:)])
         {
             [_delegate lockitronDeniedAccess:lock errorMessage:@"You don't have access to the lock."];
@@ -190,9 +193,11 @@ static LockitronSDK *_instance = nil;
 {
     NSURLRequest *request = [LockitronSDK requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.lockitron.com/v1/locks/%@/lock", lock.id]] parameters:@{@"lock_id": lock.id, @"access_token": _authenticator.access_token} method:@"POST"];
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id JSON)
     {
-        if (response.statusCode == 200 && [[[JSON objectForKey:@"log"] objectForKey:@"type"] isEqualToString:@"lock-lock"])
+        if (operation.response.statusCode == 200 && [[[JSON objectForKey:@"log"] objectForKey:@"type"] isEqualToString:@"lock-lock"])
         {
             lock.state = LockitronSDKLockClosed;
             
@@ -201,14 +206,14 @@ static LockitronSDK *_instance = nil;
                 [_delegate lockitronChangedLockState:lock to:LockitronSDKLockClosed];
             }
         }
-        else if (response.statusCode == 403)
+        else if (operation.response.statusCode == 403)
         {
             if ([_delegate respondsToSelector:@selector(lockitronDeniedAccess:errorMessage:)])
             {
                 [_delegate lockitronDeniedAccess:lock errorMessage:@"You don't have access to the lock."];
             }
         }
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if ([_delegate respondsToSelector:@selector(lockitronDeniedAccess:errorMessage:)])
         {
             [_delegate lockitronDeniedAccess:lock errorMessage:@"You don't have access to the lock."];
