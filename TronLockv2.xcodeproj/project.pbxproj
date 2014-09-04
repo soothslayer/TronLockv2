@@ -1,0 +1,635 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FD3A0972199D1C42007420F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3A0971199D1C42007420F3 /* Foundation.framework */; };
+		FD3A0974199D1C42007420F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3A0973199D1C42007420F3 /* CoreGraphics.framework */; };
+		FD3A0976199D1C42007420F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3A0975199D1C42007420F3 /* UIKit.framework */; };
+		FD3A097C199D1C42007420F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD3A097A199D1C42007420F3 /* InfoPlist.strings */; };
+		FD3A097E199D1C42007420F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3A097D199D1C42007420F3 /* main.m */; };
+		FD3A0982199D1C42007420F3 /* MyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3A0981199D1C42007420F3 /* MyAppDelegate.m */; };
+		FD3A0985199D1C42007420F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD3A0983199D1C42007420F3 /* Main.storyboard */; };
+		FD3A0988199D1C42007420F3 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3A0987199D1C42007420F3 /* MyViewController.m */; };
+		FD3A098A199D1C42007420F3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD3A0989199D1C42007420F3 /* Images.xcassets */; };
+		FD3A0991199D1C42007420F3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3A0990199D1C42007420F3 /* XCTest.framework */; };
+		FD3A0992199D1C42007420F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3A0971199D1C42007420F3 /* Foundation.framework */; };
+		FD3A0993199D1C42007420F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3A0975199D1C42007420F3 /* UIKit.framework */; };
+		FD3A099B199D1C42007420F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD3A0999199D1C42007420F3 /* InfoPlist.strings */; };
+		FD3A099D199D1C42007420F3 /* TronLockv2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3A099C199D1C42007420F3 /* TronLockv2Tests.m */; };
+		FD3A09AC199D41C1007420F3 /* HMLockitronAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3A09AB199D41C1007420F3 /* HMLockitronAccount.m */; };
+		FD3A09AF199D473C007420F3 /* HMAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3A09AE199D473C007420F3 /* HMAuthenticator.m */; };
+		FD4ED97D199E9CF5009DB223 /* LTKey.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4ED978199E9CF5009DB223 /* LTKey.m */; };
+		FD4ED97E199E9CF5009DB223 /* LTLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4ED97A199E9CF5009DB223 /* LTLock.m */; };
+		FD4ED97F199E9CF5009DB223 /* LTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4ED97C199E9CF5009DB223 /* LTUser.m */; };
+		FD4ED982199E9D76009DB223 /* base_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4ED981199E9D75009DB223 /* base_lock.png */; };
+		FD4ED986199E9D8A009DB223 /* base_lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4ED983199E9D89009DB223 /* base_lock@2x.png */; };
+		FD4ED987199E9D8A009DB223 /* top_lock.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4ED984199E9D89009DB223 /* top_lock.png */; };
+		FD4ED988199E9D8A009DB223 /* top_lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4ED985199E9D8A009DB223 /* top_lock@2x.png */; };
+		FD4ED98C199E9DBA009DB223 /* LTLockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4ED98B199E9DBA009DB223 /* LTLockCell.m */; };
+		FD4ED98F199EAFA6009DB223 /* HMLockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4ED98E199EAFA6009DB223 /* HMLockCell.m */; };
+		FD4ED99519A3EC54009DB223 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD4ED99419A3EC54009DB223 /* Entitlements.plist */; };
+		FD4ED99819A78085009DB223 /* MyLockDetailsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4ED99719A78085009DB223 /* MyLockDetailsTableVC.m */; };
+		FD4ED99B19AD0AEF009DB223 /* MySettingsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4ED99A19AD0AEF009DB223 /* MySettingsTableVC.m */; };
+		FDC80E9E19B4DF5D00279718 /* MyGrantAccessVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC80E9D19B4DF5D00279718 /* MyGrantAccessVC.m */; };
+		FDC80EA019B641A900279718 /* icon_avatar_lockitron.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC80E9F19B641A900279718 /* icon_avatar_lockitron.png */; };
+		FDC80EA219B6443E00279718 /* settings_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC80EA119B6443E00279718 /* settings_icon.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FD3A0994199D1C42007420F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD3A0966199D1C42007420F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD3A096D199D1C42007420F3;
+			remoteInfo = TronLockv2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FD3A096E199D1C42007420F3 /* TronLockv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TronLockv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD3A0971199D1C42007420F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FD3A0973199D1C42007420F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FD3A0975199D1C42007420F3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FD3A0979199D1C42007420F3 /* TronLockv2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TronLockv2-Info.plist"; sourceTree = "<group>"; };
+		FD3A097B199D1C42007420F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FD3A097D199D1C42007420F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FD3A097F199D1C42007420F3 /* TronLockv2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TronLockv2-Prefix.pch"; sourceTree = "<group>"; };
+		FD3A0980199D1C42007420F3 /* MyAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyAppDelegate.h; sourceTree = "<group>"; };
+		FD3A0981199D1C42007420F3 /* MyAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyAppDelegate.m; sourceTree = "<group>"; };
+		FD3A0984199D1C42007420F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FD3A0986199D1C42007420F3 /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		FD3A0987199D1C42007420F3 /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		FD3A0989199D1C42007420F3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FD3A098F199D1C42007420F3 /* TronLockv2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TronLockv2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD3A0990199D1C42007420F3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FD3A0998199D1C42007420F3 /* TronLockv2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TronLockv2Tests-Info.plist"; sourceTree = "<group>"; };
+		FD3A099A199D1C42007420F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FD3A099C199D1C42007420F3 /* TronLockv2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TronLockv2Tests.m; sourceTree = "<group>"; };
+		FD3A09AA199D41C1007420F3 /* HMLockitronAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMLockitronAccount.h; sourceTree = "<group>"; };
+		FD3A09AB199D41C1007420F3 /* HMLockitronAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMLockitronAccount.m; sourceTree = "<group>"; };
+		FD3A09AD199D473C007420F3 /* HMAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMAuthenticator.h; sourceTree = "<group>"; };
+		FD3A09AE199D473C007420F3 /* HMAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMAuthenticator.m; sourceTree = "<group>"; };
+		FD3A09B0199DBE79007420F3 /* HMLockitronStatic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMLockitronStatic.h; sourceTree = "<group>"; };
+		FD4ED977199E9CF5009DB223 /* LTKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTKey.h; sourceTree = "<group>"; };
+		FD4ED978199E9CF5009DB223 /* LTKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTKey.m; sourceTree = "<group>"; };
+		FD4ED979199E9CF5009DB223 /* LTLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLock.h; sourceTree = "<group>"; };
+		FD4ED97A199E9CF5009DB223 /* LTLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLock.m; sourceTree = "<group>"; };
+		FD4ED97B199E9CF5009DB223 /* LTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTUser.h; sourceTree = "<group>"; };
+		FD4ED97C199E9CF5009DB223 /* LTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTUser.m; sourceTree = "<group>"; };
+		FD4ED981199E9D75009DB223 /* base_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_lock.png; sourceTree = "<group>"; };
+		FD4ED983199E9D89009DB223 /* base_lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "base_lock@2x.png"; sourceTree = "<group>"; };
+		FD4ED984199E9D89009DB223 /* top_lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_lock.png; sourceTree = "<group>"; };
+		FD4ED985199E9D8A009DB223 /* top_lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_lock@2x.png"; sourceTree = "<group>"; };
+		FD4ED98A199E9DBA009DB223 /* LTLockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLockCell.h; sourceTree = "<group>"; };
+		FD4ED98B199E9DBA009DB223 /* LTLockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLockCell.m; sourceTree = "<group>"; };
+		FD4ED98D199EAFA6009DB223 /* HMLockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMLockCell.h; sourceTree = "<group>"; };
+		FD4ED98E199EAFA6009DB223 /* HMLockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMLockCell.m; sourceTree = "<group>"; };
+		FD4ED99419A3EC54009DB223 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Entitlements.plist; path = ../Entitlements.plist; sourceTree = "<group>"; };
+		FD4ED99619A78085009DB223 /* MyLockDetailsTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLockDetailsTableVC.h; sourceTree = "<group>"; };
+		FD4ED99719A78085009DB223 /* MyLockDetailsTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLockDetailsTableVC.m; sourceTree = "<group>"; };
+		FD4ED99919AD0AEF009DB223 /* MySettingsTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingsTableVC.h; sourceTree = "<group>"; };
+		FD4ED99A19AD0AEF009DB223 /* MySettingsTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingsTableVC.m; sourceTree = "<group>"; };
+		FDC80E9C19B4DF5D00279718 /* MyGrantAccessVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGrantAccessVC.h; sourceTree = "<group>"; };
+		FDC80E9D19B4DF5D00279718 /* MyGrantAccessVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGrantAccessVC.m; sourceTree = "<group>"; };
+		FDC80E9F19B641A900279718 /* icon_avatar_lockitron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_avatar_lockitron.png; path = ../../../Controller/icon_avatar_lockitron.png; sourceTree = "<group>"; };
+		FDC80EA119B6443E00279718 /* settings_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_icon.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD3A096B199D1C42007420F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD3A0974199D1C42007420F3 /* CoreGraphics.framework in Frameworks */,
+				FD3A0976199D1C42007420F3 /* UIKit.framework in Frameworks */,
+				FD3A0972199D1C42007420F3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD3A098C199D1C42007420F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD3A0991199D1C42007420F3 /* XCTest.framework in Frameworks */,
+				FD3A0993199D1C42007420F3 /* UIKit.framework in Frameworks */,
+				FD3A0992199D1C42007420F3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FD3A0965199D1C42007420F3 = {
+			isa = PBXGroup;
+			children = (
+				FD3A0977199D1C42007420F3 /* TronLockv2 */,
+				FD3A0996199D1C42007420F3 /* TronLockv2Tests */,
+				FD3A0970199D1C42007420F3 /* Frameworks */,
+				FD3A096F199D1C42007420F3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FD3A096F199D1C42007420F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD3A096E199D1C42007420F3 /* TronLockv2.app */,
+				FD3A098F199D1C42007420F3 /* TronLockv2Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD3A0970199D1C42007420F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD3A0971199D1C42007420F3 /* Foundation.framework */,
+				FD3A0973199D1C42007420F3 /* CoreGraphics.framework */,
+				FD3A0975199D1C42007420F3 /* UIKit.framework */,
+				FD3A0990199D1C42007420F3 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD3A0977199D1C42007420F3 /* TronLockv2 */ = {
+			isa = PBXGroup;
+			children = (
+				FD4ED99419A3EC54009DB223 /* Entitlements.plist */,
+				FD3A09A8199D3413007420F3 /* Controller */,
+				FD3A09A7199D340C007420F3 /* View */,
+				FD3A09A6199D3405007420F3 /* Model */,
+				FD3A0989199D1C42007420F3 /* Images.xcassets */,
+				FD3A0978199D1C42007420F3 /* Supporting Files */,
+			);
+			path = TronLockv2;
+			sourceTree = "<group>";
+		};
+		FD3A0978199D1C42007420F3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD3A0979199D1C42007420F3 /* TronLockv2-Info.plist */,
+				FD3A097A199D1C42007420F3 /* InfoPlist.strings */,
+				FD3A097D199D1C42007420F3 /* main.m */,
+				FD3A097F199D1C42007420F3 /* TronLockv2-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FD3A0996199D1C42007420F3 /* TronLockv2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FD3A099C199D1C42007420F3 /* TronLockv2Tests.m */,
+				FD3A0997199D1C42007420F3 /* Supporting Files */,
+			);
+			path = TronLockv2Tests;
+			sourceTree = "<group>";
+		};
+		FD3A0997199D1C42007420F3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD3A0998199D1C42007420F3 /* TronLockv2Tests-Info.plist */,
+				FD3A0999199D1C42007420F3 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FD3A09A6199D3405007420F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD3A0980199D1C42007420F3 /* MyAppDelegate.h */,
+				FD3A0981199D1C42007420F3 /* MyAppDelegate.m */,
+				FD3A09A9199D341D007420F3 /* HMLockitron */,
+			);
+			name = Model;
+			path = TronLockv2/Model;
+			sourceTree = SOURCE_ROOT;
+		};
+		FD3A09A7199D340C007420F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD3A0983199D1C42007420F3 /* Main.storyboard */,
+			);
+			name = View;
+			path = TronLockv2/View;
+			sourceTree = SOURCE_ROOT;
+		};
+		FD3A09A8199D3413007420F3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD3A0986199D1C42007420F3 /* MyViewController.h */,
+				FD3A0987199D1C42007420F3 /* MyViewController.m */,
+				FD4ED99619A78085009DB223 /* MyLockDetailsTableVC.h */,
+				FD4ED99719A78085009DB223 /* MyLockDetailsTableVC.m */,
+				FD4ED99919AD0AEF009DB223 /* MySettingsTableVC.h */,
+				FD4ED99A19AD0AEF009DB223 /* MySettingsTableVC.m */,
+				FDC80E9C19B4DF5D00279718 /* MyGrantAccessVC.h */,
+				FDC80E9D19B4DF5D00279718 /* MyGrantAccessVC.m */,
+			);
+			name = Controller;
+			path = TronLockv2/Controller;
+			sourceTree = SOURCE_ROOT;
+		};
+		FD3A09A9199D341D007420F3 /* HMLockitron */ = {
+			isa = PBXGroup;
+			children = (
+				FD4ED989199E9D99009DB223 /* Controller */,
+				FD4ED980199E9D28009DB223 /* Support */,
+				FD3A09AA199D41C1007420F3 /* HMLockitronAccount.h */,
+				FD3A09AB199D41C1007420F3 /* HMLockitronAccount.m */,
+				FD3A09AD199D473C007420F3 /* HMAuthenticator.h */,
+				FD3A09AE199D473C007420F3 /* HMAuthenticator.m */,
+				FD3A09B0199DBE79007420F3 /* HMLockitronStatic.h */,
+				FD4ED977199E9CF5009DB223 /* LTKey.h */,
+				FD4ED978199E9CF5009DB223 /* LTKey.m */,
+				FD4ED979199E9CF5009DB223 /* LTLock.h */,
+				FD4ED97A199E9CF5009DB223 /* LTLock.m */,
+				FD4ED97B199E9CF5009DB223 /* LTUser.h */,
+				FD4ED97C199E9CF5009DB223 /* LTUser.m */,
+			);
+			name = HMLockitron;
+			path = TronLockv2/Model/HMLockitron;
+			sourceTree = SOURCE_ROOT;
+		};
+		FD4ED980199E9D28009DB223 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				FDC80EA119B6443E00279718 /* settings_icon.png */,
+				FDC80E9F19B641A900279718 /* icon_avatar_lockitron.png */,
+				FD4ED981199E9D75009DB223 /* base_lock.png */,
+				FD4ED983199E9D89009DB223 /* base_lock@2x.png */,
+				FD4ED984199E9D89009DB223 /* top_lock.png */,
+				FD4ED985199E9D8A009DB223 /* top_lock@2x.png */,
+			);
+			name = Support;
+			path = TronLockv2/Model/HMLockitron/Support;
+			sourceTree = SOURCE_ROOT;
+		};
+		FD4ED989199E9D99009DB223 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD4ED98A199E9DBA009DB223 /* LTLockCell.h */,
+				FD4ED98B199E9DBA009DB223 /* LTLockCell.m */,
+				FD4ED98D199EAFA6009DB223 /* HMLockCell.h */,
+				FD4ED98E199EAFA6009DB223 /* HMLockCell.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FD3A096D199D1C42007420F3 /* TronLockv2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD3A09A0199D1C42007420F3 /* Build configuration list for PBXNativeTarget "TronLockv2" */;
+			buildPhases = (
+				FD3A096A199D1C42007420F3 /* Sources */,
+				FD3A096B199D1C42007420F3 /* Frameworks */,
+				FD3A096C199D1C42007420F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TronLockv2;
+			productName = TronLockv2;
+			productReference = FD3A096E199D1C42007420F3 /* TronLockv2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FD3A098E199D1C42007420F3 /* TronLockv2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD3A09A3199D1C42007420F3 /* Build configuration list for PBXNativeTarget "TronLockv2Tests" */;
+			buildPhases = (
+				FD3A098B199D1C42007420F3 /* Sources */,
+				FD3A098C199D1C42007420F3 /* Frameworks */,
+				FD3A098D199D1C42007420F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD3A0995199D1C42007420F3 /* PBXTargetDependency */,
+			);
+			name = TronLockv2Tests;
+			productName = TronLockv2Tests;
+			productReference = FD3A098F199D1C42007420F3 /* TronLockv2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FD3A0966199D1C42007420F3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = My;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Hanlon Miller Inc";
+				TargetAttributes = {
+					FD3A096D199D1C42007420F3 = {
+						DevelopmentTeam = KUGPEZH97N;
+					};
+					FD3A098E199D1C42007420F3 = {
+						TestTargetID = FD3A096D199D1C42007420F3;
+					};
+				};
+			};
+			buildConfigurationList = FD3A0969199D1C42007420F3 /* Build configuration list for PBXProject "TronLockv2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FD3A0965199D1C42007420F3;
+			productRefGroup = FD3A096F199D1C42007420F3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FD3A096D199D1C42007420F3 /* TronLockv2 */,
+				FD3A098E199D1C42007420F3 /* TronLockv2Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD3A096C199D1C42007420F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD4ED99519A3EC54009DB223 /* Entitlements.plist in Resources */,
+				FDC80EA219B6443E00279718 /* settings_icon.png in Resources */,
+				FD4ED987199E9D8A009DB223 /* top_lock.png in Resources */,
+				FD3A098A199D1C42007420F3 /* Images.xcassets in Resources */,
+				FD3A097C199D1C42007420F3 /* InfoPlist.strings in Resources */,
+				FD4ED988199E9D8A009DB223 /* top_lock@2x.png in Resources */,
+				FD3A0985199D1C42007420F3 /* Main.storyboard in Resources */,
+				FDC80EA019B641A900279718 /* icon_avatar_lockitron.png in Resources */,
+				FD4ED986199E9D8A009DB223 /* base_lock@2x.png in Resources */,
+				FD4ED982199E9D76009DB223 /* base_lock.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD3A098D199D1C42007420F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD3A099B199D1C42007420F3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD3A096A199D1C42007420F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD3A0988199D1C42007420F3 /* MyViewController.m in Sources */,
+				FD4ED98F199EAFA6009DB223 /* HMLockCell.m in Sources */,
+				FD4ED98C199E9DBA009DB223 /* LTLockCell.m in Sources */,
+				FD4ED99819A78085009DB223 /* MyLockDetailsTableVC.m in Sources */,
+				FD3A0982199D1C42007420F3 /* MyAppDelegate.m in Sources */,
+				FD4ED97F199E9CF5009DB223 /* LTUser.m in Sources */,
+				FD4ED99B19AD0AEF009DB223 /* MySettingsTableVC.m in Sources */,
+				FDC80E9E19B4DF5D00279718 /* MyGrantAccessVC.m in Sources */,
+				FD3A09AC199D41C1007420F3 /* HMLockitronAccount.m in Sources */,
+				FD4ED97D199E9CF5009DB223 /* LTKey.m in Sources */,
+				FD3A097E199D1C42007420F3 /* main.m in Sources */,
+				FD3A09AF199D473C007420F3 /* HMAuthenticator.m in Sources */,
+				FD4ED97E199E9CF5009DB223 /* LTLock.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD3A098B199D1C42007420F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD3A099D199D1C42007420F3 /* TronLockv2Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FD3A0995199D1C42007420F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD3A096D199D1C42007420F3 /* TronLockv2 */;
+			targetProxy = FD3A0994199D1C42007420F3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FD3A097A199D1C42007420F3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD3A097B199D1C42007420F3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FD3A0983199D1C42007420F3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD3A0984199D1C42007420F3 /* Base */,
+			);
+			name = Main.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FD3A0999199D1C42007420F3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD3A099A199D1C42007420F3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FD3A099E199D1C42007420F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "/Users/hanlonmiller/Documents/Developing Apps/TronLockv2/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hanlon Miller (KUGPEZH97N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "a0171a97-f85c-4b56-b49b-6a1d58e2fc88";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FD3A099F199D1C42007420F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "/Users/hanlonmiller/Documents/Developing Apps/TronLockv2/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hanlon Miller (KUGPEZH97N)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "a0171a97-f85c-4b56-b49b-6a1d58e2fc88";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FD3A09A1199D1C42007420F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "/Users/hanlonmiller/Documents/Developing Apps/TronLockv2/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TronLockv2/TronLockv2-Prefix.pch";
+				INFOPLIST_FILE = "TronLockv2/TronLockv2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8a30120d-fe0b-4222-a436-bafac4b1fbb3";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FD3A09A2199D1C42007420F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "/Users/hanlonmiller/Documents/Developing Apps/TronLockv2/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TronLockv2/TronLockv2-Prefix.pch";
+				INFOPLIST_FILE = "TronLockv2/TronLockv2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8a30120d-fe0b-4222-a436-bafac4b1fbb3";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FD3A09A4199D1C42007420F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TronLockv2.app/TronLockv2";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TronLockv2/TronLockv2-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TronLockv2Tests/TronLockv2Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FD3A09A5199D1C42007420F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TronLockv2.app/TronLockv2";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TronLockv2/TronLockv2-Prefix.pch";
+				INFOPLIST_FILE = "TronLockv2Tests/TronLockv2Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD3A0969199D1C42007420F3 /* Build configuration list for PBXProject "TronLockv2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD3A099E199D1C42007420F3 /* Debug */,
+				FD3A099F199D1C42007420F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD3A09A0199D1C42007420F3 /* Build configuration list for PBXNativeTarget "TronLockv2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD3A09A1199D1C42007420F3 /* Debug */,
+				FD3A09A2199D1C42007420F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD3A09A3199D1C42007420F3 /* Build configuration list for PBXNativeTarget "TronLockv2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD3A09A4199D1C42007420F3 /* Debug */,
+				FD3A09A5199D1C42007420F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FD3A0966199D1C42007420F3 /* Project object */;
+}

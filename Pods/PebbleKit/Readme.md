@@ -1,1 +1,0 @@
-This repository temporarily mirrors a subset of https://github.com/pebble/pebblekit to provide CocoaPods for the iOS PebbleKit.
